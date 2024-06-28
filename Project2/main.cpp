@@ -183,9 +183,11 @@ void process_input()
     SDL_Event event;
     while (SDL_PollEvent(&event))
     {
-        if (event.type == SDL_QUIT || event.type == SDL_WINDOWEVENT_CLOSE)
-        {
+        switch (event.type) {
+        case SDL_QUIT:
+        case SDL_WINDOWEVENT_CLOSE:
             g_app_status = TERMINATED;
+            break;
         }
     }
 }
